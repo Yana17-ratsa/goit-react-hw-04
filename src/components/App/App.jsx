@@ -91,12 +91,10 @@ const openModal = (imgUrl, alt) => {
         <SearchBar onSearch={handleSearch}/>
         {isLoading && <Loader/>}
         {isError && <ErrorMessage/>}
-        {/* {images.lenght > 0 && <ImageGallery gallery={images}/>} */}
         <ImageGallery gallery={images} onOpenModal={openModal}/>
         {page < totalPages && images.length > 0 && !isLoading && (
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
-        {isLoading && <Loader/>}
         <ImageModal
         onOpen={modalIsOpen}
         onClose={closeModal}
