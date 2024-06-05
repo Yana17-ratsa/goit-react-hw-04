@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar/SearchBar"
 import ImageGallery from "../ImageGallery/ImageGallery";
 import ImageModal from "../ImageModal/ImageModal";
 import Loader from "../Loader/Loader";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 function App () {
 
     const [images, setImages] = useState([]);
@@ -91,7 +92,9 @@ const openModal = (imgUrl, alt) => {
         {isError && <p>There is an error! Please try again!</p>}
         {/* {images.lenght > 0 && <ImageGallery gallery={images}/>} */}
         <ImageGallery gallery={images} onOpenModal={openModal}/>
-        {page < totalPages && images.length > 0 && !isLoading && <button type="button" onClick={handleLoadMore}>Load more</button>}
+        {page < totalPages && images.length > 0 && !isLoading && (
+        <LoadMoreBtn onClick={handleLoadMore} />
+      )}
         {isLoading && <Loader/>}
         <ImageModal
         onOpen={modalIsOpen}
